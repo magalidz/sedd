@@ -19,8 +19,11 @@ public class LogicaS {
     static String carrera;
     static String materia;
     static String anio;
+    static String profesor;
+    static int curso;
     static int duracion;
-    
+           static int Mensaje[] =new int [5];
+
     
     static int interruptor=1;
     static String instruccion;
@@ -60,7 +63,9 @@ public class LogicaS {
          //   aux= rs.getString(2);
             aux= rs.getString(getColumna());
  //    System.out.println("sumador"+getSumador());
-     System.out.println("hay"+aux);
+   
+            
+            //System.out.println("hay"+aux);
             
             SEDD.setCadena(aux,getSumador());
               setSumador(getSumador()+1);
@@ -121,16 +126,46 @@ public class LogicaS {
 
     public static void setDuracion(int duracion) {LogicaS.duracion = duracion;}
     
+     public static int getMensaje(int I) {  return Mensaje [I];}
+
+    public static void setMensaje(int Mensaje,int I) { LogicaS.Mensaje[I] = Mensaje;  }
+
+    public static String getProfesor() {
+        return profesor;
+    }
+
+    public static void setProfesor(String profesor) {
+        LogicaS.profesor = profesor;
+    }
+
+    public static int getCurso() {
+        return curso;
+    }
+
+    public static void setCurso(int curso) {
+        LogicaS.curso = curso;
+    }
+    
     
 
   public void SelectQuery(String tabla){
   
   switch(getInterruptor()){
   
-      case 1: setInstruccion("select * from "+tabla);setColumna(2);break;
+      case 1: setInstruccion("select * from "+tabla);
+      setColumna(2);break;
       case 2: setInstruccion("select * from "+tabla+" where CarrNom = "+"'"+getCarrera()+"'"+";");
       setColumna(3);break;
-      case 3: setInstruccion("select * from "+tabla);setColumna(2); break;
+      case 3: setInstruccion("select * from "+tabla);
+      setColumna(2); break;
+      case 4: setInstruccion("select * from "+tabla+" where MatCarr = "+getMensaje(0)+" and MatAnio = "+getMensaje(1)+";");
+      setColumna(2);break;
+      case 5: setInstruccion("select * from "+tabla+" where CurCarr = "+getMensaje(0)+" and CurAnio = "+getMensaje(1)+";");
+          setColumna(1);break;
+      case 6:setInstruccion("select * from "+tabla+" where ProfCarr = "+getMensaje(0)+" and ProfAnio = "+getMensaje(1)+" and ProfMat = "+getMensaje(2)+";");                     
+          setColumna(2);break;
+  
+  //               SELECT * FROM materia where MatCarr = 1 and MatAnio = 1;
   
   }
   

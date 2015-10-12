@@ -15,7 +15,7 @@ public class SEDD {
   
        static   String cadena[] = new String [100];
        static int fila;
-       static int Mensaje,duracion;
+       static int duracion;
        
 
     public static String getCadena(int I) { return cadena[I]; }
@@ -26,9 +26,7 @@ public class SEDD {
 
     public static void setFila(int fila) {  SEDD.fila = fila;  }
 
-    public static int getMensaje() {  return Mensaje;}
-
-    public static void setMensaje(int Mensaje) { SEDD.Mensaje = Mensaje;  }
+   
 
     public static int getDuracion() { return duracion;  }
 
@@ -38,6 +36,7 @@ public class SEDD {
     
     public static void main(String[] args) {
         
+        Vista.MostrarMensaje(1);
         
         AnidacionMetodologica();
        

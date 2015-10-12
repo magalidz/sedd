@@ -6,24 +6,39 @@
 
 package sedd;
 
+import java.awt.Label;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+
 /**
  *
  * @author polmania
  */
 public class Presentacion extends javax.swing.JFrame {
     private String[] args;
+    
 
-    /**
-     * Creates new form Presentacion
-     */
+   static void Desseleccionar(JComboBox combobox,JLabel label,String palabra){
+   
+   combobox.setVisible(false);
+   label.setText(palabra);
+   
+   }
+    
+    
+    
+    //CONSTRUCTOR
     public Presentacion() {
        
-        
+//this.setLocationRelativeTo(null);
+this.setLocation(350, 150);
+                
         initComponents();
           String vecAux[]=new String[SEDD.getFila()];
       
             
-             for (int i = 0; i < SEDD.getFila(); i++) {   vecAux[i]=SEDD.getCadena(i);   }
+             for (int i = 0; i < SEDD.getFila(); i++) {  
+                 vecAux[i]=SEDD.getCadena(i);   }
               Jcarrera.setModel(new javax.swing.DefaultComboBoxModel<>(vecAux));
                 
           
@@ -57,17 +72,21 @@ public class Presentacion extends javax.swing.JFrame {
         jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         jCheckBoxMenuItem3 = new javax.swing.JCheckBoxMenuItem();
         buttonGroup3 = new javax.swing.ButtonGroup();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        jLabel1 = new javax.swing.JLabel();
+        Jpanel = new javax.swing.JInternalFrame();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        Lcarrera = new javax.swing.JLabel();
+        Lmateria = new javax.swing.JLabel();
+        Lprofesor = new javax.swing.JLabel();
         Jcarrera = new javax.swing.JComboBox();
         Janio = new javax.swing.JComboBox();
         Jmateria = new javax.swing.JComboBox();
-        Jprofesor = new javax.swing.JComboBox();
         Benviar = new javax.swing.JButton();
         Bsalir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        JLcarrera = new javax.swing.JLabel();
+        JLmateria = new javax.swing.JLabel();
+        JLanio = new javax.swing.JLabel();
+        JLprofesor = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -80,41 +99,38 @@ public class Presentacion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jInternalFrame1.setTitle("Registro de datos");
-        jInternalFrame1.setVisible(true);
-
-        jLabel1.setText("Carrera");
+        Jpanel.setTitle("Registro de datos");
+        Jpanel.setAlignmentX(50.0F);
+        Jpanel.setAlignmentY(50.0F);
+        Jpanel.setVisible(true);
 
         jLabel2.setText("Año");
 
-        jLabel3.setText("Materia");
+        Lcarrera.setText("Carrera");
 
-        jLabel4.setText("Profesor");
+        Lmateria.setText("Materia");
 
+        Lprofesor.setText("Profesor");
+
+        Jcarrera.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Desplegar" }));
         Jcarrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JcarreraActionPerformed(evt);
             }
         });
 
-        Janio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Janio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Desplegar" }));
+        Janio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Janio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JanioActionPerformed(evt);
             }
         });
 
-        Jmateria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Jmateria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Desplegar" }));
         Jmateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JmateriaActionPerformed(evt);
-            }
-        });
-
-        Jprofesor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Jprofesor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JprofesorActionPerformed(evt);
             }
         });
 
@@ -132,57 +148,87 @@ public class Presentacion extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addComponent(Benviar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Bsalir)
-                        .addGap(39, 39, 39))
-                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                        .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Jprofesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(98, 98, 98)
-                                .addComponent(Janio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Jcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Jmateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(271, Short.MAX_VALUE))))
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jInternalFrame1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(Jcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout JpanelLayout = new javax.swing.GroupLayout(Jpanel.getContentPane());
+        Jpanel.getContentPane().setLayout(JpanelLayout);
+        JpanelLayout.setHorizontalGroup(
+            JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpanelLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(Benviar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addComponent(Bsalir)
+                .addGap(120, 120, 120))
+            .addGroup(JpanelLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Lcarrera)
                     .addComponent(jLabel2)
-                    .addComponent(Janio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(Jmateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(Jprofesor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lmateria)
+                    .addComponent(Lprofesor))
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(154, 154, 154)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JpanelLayout.createSequentialGroup()
+                                .addComponent(Janio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(JLanio)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(JpanelLayout.createSequentialGroup()
+                                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(JLprofesor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Jcarrera, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Jmateria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(JpanelLayout.createSequentialGroup()
+                                        .addGap(34, 34, 34)
+                                        .addComponent(JLmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(90, 90, 90))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpanelLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(JLcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(82, 82, 82))))))))
+        );
+        JpanelLayout.setVerticalGroup(
+            JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpanelLayout.createSequentialGroup()
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Jcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Lcarrera)))
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(JLcarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Janio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2))
+                    .addComponent(JLanio, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addComponent(jLabel1)
+                .addGap(4, 4, 4)
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(Lprofesor))
+                    .addGroup(JpanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Jmateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Lmateria))
+                            .addComponent(JLmateria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JLprofesor, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(38, 38, 38)
+                .addGroup(JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Benviar)
                     .addComponent(Bsalir))
                 .addContainerGap())
@@ -193,108 +239,143 @@ public class Presentacion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 77, Short.MAX_VALUE))
+                .addComponent(Jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Jpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JcarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JcarreraActionPerformed
+    private void BsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BsalirActionPerformed
 
-            
-        LogicaS log=new LogicaS();
-        
-        SEDD.setMensaje( Jcarrera.getSelectedIndex()+1);
-      
-  //      LogicaS.setCarrera( (String) Jcarrera.getItemAt(Jcarrera.getSelectedIndex()));
-        
-//        System.out.println( Jcarrera.getKeyListeners() );
-        
-        
-        
-       if ( Jcarrera.getKeyListeners()!=null) { 
-           
-           System.out.println("seleccione "+ (String) Jcarrera.getSelectedItem());
-           
-           
-           
-           LogicaS.setCarrera((String) Jcarrera.getSelectedItem());
-           
-           //CAMBIAR MATERIA POR AÑO CUANDO TENGA TODAS LAS TABLAS TERMINADAS 
-           
-           //REVISAR LA LOGICA PARA QUE DE ACUERDO AL AÑO Y A LA CARRERA SELECCIONE CIERTAS MATERIAS
-           
-           LogicaS.setSumador(0);//reestablecer 
-           
-           LogicaS.setInterruptor(2);//para darle la 2da instruccion
-           
-           
-           
-           log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","carrera");
-           
- LogicaS.setSumador(0);         
- LogicaS.setInterruptor(3);//para darle la 2da instruccion
- LogicaS.setDuracion(Integer.parseInt(SEDD.getCadena(0)));//Calculo las vueltas que usara para cargar el año
-
-           
-           log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","anio"); //<------------
-        
-          
-           
-    String vecAux[]=new String[LogicaS.getDuracion()];
-    for (int i = 0; i < LogicaS.getDuracion(); i++) {
-        //  System.out.println("hay en anio"+SEDD.getCadena(i));
-        vecAux[i]=SEDD.getCadena(i);    }
-        Janio.setModel(new javax.swing.DefaultComboBoxModel<>(vecAux));  }
-        
-        
-    //Jcarrera.getSelectedObjects();
-       // log.setConection("jdbc:mysql://localhost/seed", "root","anouk666","materia");
-         //   System.out.println(SEDD.getMensaje());
-   
-  //System.out.println( Jcarrera.getItemAt(Jcarrera.getSelectedIndex()));
-
-
-    }//GEN-LAST:event_JcarreraActionPerformed
+    }//GEN-LAST:event_BsalirActionPerformed
 
     private void BenviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BenviarActionPerformed
-Vista V=new Vista();
-V.LlamarFrame(2);
-
-setVisible(false);
+        //  |         AGREGAR GETPROFESOR A LA CONDICION
+        if ((LogicaS.getCarrera()==null)||(LogicaS.getAnio()==null)
+            ||(LogicaS.getMateria()==null)||(LogicaS.getProfesor()==null)) {
+            Vista.MostrarMensaje(2);}
+        else{
+            Vista V=new Vista();
+            V.LlamarFrame(2);
+            setVisible(false);}
 
     }//GEN-LAST:event_BenviarActionPerformed
 
-    private void JanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JanioActionPerformed
-  
-        SEDD.getMensaje();
-        
-           System.out.println(SEDD.getMensaje());
-        
-        
-    }//GEN-LAST:event_JanioActionPerformed
-
     private void JmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JmateriaActionPerformed
-        // TODO add your handling code here:
+        LogicaS log = new LogicaS();
+        if (Jmateria.getKeyListeners()!=null) {
+
+            LogicaS.setMateria((String) Jmateria.getSelectedItem());
+
+            //capturo el index de la materia en mensaje 2
+            LogicaS.setMensaje(Jmateria.getSelectedIndex()+1, 2);
+
+            LogicaS.setSumador(0);//reestablecer
+
+            LogicaS.setInterruptor(6);//para darle la 6ta instruccion
+
+            //ACA SE LLAMA A J CONECTOR
+
+            log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","profesor");
+
+            //ACA VA EL FOR PARA CARGAR EL COMBOBOX
+                 //Cargamos el profesor en la Label 
+            JLprofesor.setText(SEDD.getCadena(0));
+                //cargamos el profesor
+            LogicaS.setProfesor(SEDD.getCadena(0));
+            Desseleccionar(Jmateria, JLmateria, LogicaS.getMateria());
+            Desseleccionar(Janio, JLanio, LogicaS.getAnio());
+            //  System.out.println("label"+JLcarrera.getAlignmentY());
+        }
+
     }//GEN-LAST:event_JmateriaActionPerformed
 
-    private void JprofesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JprofesorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JprofesorActionPerformed
+    private void JanioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JanioActionPerformed
+        LogicaS log = new LogicaS();
 
-    private void BsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BsalirActionPerformed
+        if ( Janio.getKeyListeners()!=null) {
 
+            //capturo el año elegido como string
 
+            LogicaS.setAnio((String) Janio.getSelectedItem());
 
+            //cargo como mensaje 1 (entero) el indice del año seleccionada
 
-    }//GEN-LAST:event_BsalirActionPerformed
+            LogicaS.setMensaje( Janio.getSelectedIndex()+1,1);
+
+            LogicaS.setSumador(0);
+
+            LogicaS.setInterruptor(5);
+
+            log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","curso");
+
+            //CARGO EL NUMERO DE CURSO CORRESPONDIENTE
+            LogicaS.setCurso(Integer.parseInt(SEDD.getCadena(0)));
+
+            LogicaS.setSumador(0);//reestablecer
+
+            LogicaS.setInterruptor(4);//para darle la 4ta instruccion
+
+            log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","materia");
+
+            String vecAux[]=new String[SEDD.getFila()];
+            for (int i = 0; i < SEDD.getFila(); i++) {vecAux[i]=SEDD.getCadena(i);    }
+            Jmateria.setModel(new javax.swing.DefaultComboBoxModel<>(vecAux));
+
+            Desseleccionar(Jcarrera, JLcarrera, LogicaS.getCarrera());
+
+        }
+
+    }//GEN-LAST:event_JanioActionPerformed
+
+    private void JcarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JcarreraActionPerformed
+
+        LogicaS log=new LogicaS();
+
+        if ( Jcarrera.getKeyListeners()!=null) {
+
+            //cargo como mensaje 0 el indice de la carrera seleccionada
+            LogicaS.setMensaje( Jcarrera.getSelectedIndex()+1,0);
+
+            //cargo la carrera elegida como string
+
+            LogicaS.setCarrera((String) Jcarrera.getSelectedItem());
+
+            LogicaS.setSumador(0);//reestablecer
+
+            LogicaS.setInterruptor(2);//para darle la 2da instruccion
+
+            //Cargo la DURACION de la materia
+            log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","carrera");
+
+            LogicaS.setSumador(0);
+            LogicaS.setInterruptor(3);//para darle la 3ra instruccion
+            LogicaS.setDuracion(Integer.parseInt(SEDD.getCadena(0)));//Calculo las vueltas que usara para cargar el año
+
+            //Cargo los años correspondientes
+            log.setConection("jdbc:mysql://localhost/sedd", "root","teamo","anio"); //<------------
+
+            String vecAux[]=new String[LogicaS.getDuracion()];
+            for (int i = 0; i < LogicaS.getDuracion(); i++) {
+
+                //  System.out.println("hay en anio"+SEDD.getCadena(i));
+                vecAux[i]=SEDD.getCadena(i);    }
+            Janio.setModel(new javax.swing.DefaultComboBoxModel<>(vecAux));  }
+
+        //Jcarrera.getSelectedObjects();
+        // log.setConection("jdbc:mysql://localhost/seed", "root","anouk666","materia");
+        //   System.out.println(SEDD.getMensaje());
+
+        //System.out.println( Jcarrera.getItemAt(Jcarrera.getSelectedIndex()));
+
+    }//GEN-LAST:event_JcarreraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -327,6 +408,7 @@ setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Presentacion().setVisible(true);
+                
             }
         });
     }
@@ -334,20 +416,24 @@ setVisible(false);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Benviar;
     private javax.swing.JButton Bsalir;
+    private javax.swing.JLabel JLanio;
+    private javax.swing.JLabel JLcarrera;
+    private javax.swing.JLabel JLmateria;
+    private javax.swing.JLabel JLprofesor;
     private javax.swing.JComboBox Janio;
     private javax.swing.JComboBox Jcarrera;
     private javax.swing.JComboBox Jmateria;
-    private javax.swing.JComboBox Jprofesor;
+    private javax.swing.JInternalFrame Jpanel;
+    private javax.swing.JLabel Lcarrera;
+    private javax.swing.JLabel Lmateria;
+    private javax.swing.JLabel Lprofesor;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem3;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
